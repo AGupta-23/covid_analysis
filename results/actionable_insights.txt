@@ -1,0 +1,4 @@
+=== COVID-19 Actionable Insights ===
+
+1. 🌍 Global fatality rate during COVID-19 was 0.69%.
+2. 📈 Peak daily cases were 40,975,782 on 2022-12-25 in Upper-middle-income countries.

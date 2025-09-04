@@ -1,90 +1,50 @@
-📊 COVID-19 Data-Driven Insights & Visualization Project
-📝 Overview
+📘 COVID-19 Data Analysis Project
 
-This project analyzes a global COVID-19 dataset to uncover patterns, trends, and actionable insights for decision-makers.
-
-The project follows a structured data science workflow:
-
-Data Cleaning & Preprocessing
-
-Exploratory Data Analysis (EDA) with Visualizations
-
-Feature Engineering
-
-Actionable Insights Generation
+This project is about analyzing the COVID-19 dataset using Python.
+The steps include cleaning the data, exploring it with graphs, creating new features, and finally writing down insights that can help decision-makers.
 
 📂 Project Structure
-covid_analysis/
-│
-├── data/  
-│   ├── raw/ → Original dataset  
-│   ├── processed/ → Cleaned & feature-engineered datasets  
-│
-├── visualizations/ → Plots generated during EDA  
-├── results/ → Actionable insights (text file)  
-│
-├── src/ → Source code  
-│   ├── data_downloader.py  
-│   ├── data_cleaning.py  
-│   ├── feature_engineering.py  
-│   ├── eda_analysis.py  
-│   └── insights_generator.py  
-│
-├── main.py → Runs the entire pipeline  
-├── requirements.txt → Dependencies  
-└── README.md → Project documentation  
+data/
+ ├── raw/                # Original dataset (downloaded)
+ ├── processed/          # Cleaned + feature engineered datasets
+results/                 # Actionable insights (text file)
+src/                     # Python scripts (cleaning, EDA, etc.)
+visualizations/          # Graphs generated from analysis
 
-⚙️ Setup & Usage
+⚙️ How to Run
 
-Install dependencies:
+First, download the data:
 
-pip install -r requirements.txt
+python src/data_downloader.py
 
 
-Run the complete pipeline:
+Clean the data:
 
-python main.py
+python src/data_cleaning.py
 
 
-Cleaned dataset → data/processed/covid_data_clean.csv
+Do EDA and generate visualizations:
 
-Feature dataset → data/processed/covid_data_features.csv
+python src/eda_analysis.py
 
-Visualizations → visualizations/ folder
 
-Insights → results/actionable_insights.txt
+Create features:
 
-📥 Dataset Note
+python src/feature_engineering.py
 
-Initially, downloading the dataset directly from the internet wasn’t working due to network restrictions.
-👉 To solve this, I created a data_downloader.py script which loads the dataset locally so the rest of the workflow can run smoothly.
 
-📈 Visualizations Created
+Generate insights:
 
-Global COVID-19 Cases Trend
+python src/insights_generator.py
 
-Top Affected Countries by Cases
+🛠 Tools Used
 
-Deaths vs Cases Analysis
-(+ optional Vaccination vs Deaths scatter plot — skipped due to data gaps)
+Python
 
-🔍 Feature Engineering
+Pandas, NumPy
 
-Fatality Rate = Total Deaths ÷ Total Cases
+Matplotlib, Seaborn
 
-Daily New Cases = Day-to-day difference
+📌 Note
 
-Daily New Deaths = Day-to-day difference
-
-💡 Actionable Insights
-
-The global fatality rate during COVID-19 was ~0.69%.
-
-Peak daily cases (40M+) occurred in upper-middle-income countries, highlighting healthcare pressure.
-
-Countries with higher vaccination coverage showed significantly lower death rates, reinforcing the impact of vaccination drives.
-
-✅ Conclusion
-
-This project demonstrates how data-driven insights can support public health decisions.
-From dataset cleaning to visualization and insights, the pipeline provides a complete workflow that can be reused for similar real-world problems.
+Since direct downloading from the internet sometimes didn’t work, I wrote a simple script data_downloader.py to fetch the dataset and save it locally.

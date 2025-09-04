@@ -1,24 +1,27 @@
-from src.data_cleaning import clean_covid_data
-from src.feature_engineering import add_features
+# Main pipeline runner (simple and readable)
+
+from src.data_cleaning import clean_data
 from src.eda_analysis import run_eda
+from src.feature_engineering import create_features
 from src.insights_generator import generate_insights
 
-def main():
-    print("\n🚀 Starting COVID-19 Analysis Pipeline...\n")
+# File paths
+raw_data = "data/raw/covid_data_raw.csv"
+clean_data_file = "data/processed/covid_data_clean.csv"
+features_file = "data/processed/covid_data_features.csv"
+results_file = "results/actionable_insights.txt"
+viz_folder = "visualizations"
 
-    # Step 1: Data Cleaning
-    cleaned_df = clean_covid_data()
+# Step 1: Clean data
+clean_data(raw_data, clean_data_file)
 
-    # Step 2: Feature Engineering
-    features_df = add_features()
+# Step 2: Run EDA
+run_eda(clean_data_file, viz_folder)
 
-    # Step 3: Exploratory Data Analysis (Visualizations)
-    run_eda()
+# Step 3: Feature Engineering
+create_features(clean_data_file, features_file)
 
-    # Step 4: Generate Actionable Insights
-    generate_insights()
+# Step 4: Generate Insights
+generate_insights(features_file, results_file)
 
-    print("\n🎉 Pipeline complete! Check 'data/processed/', 'visualizations/', and 'results/' folders.\n")
-
-if __name__ == "__main__":
-    main()
+print("\n✅ Project pipeline complete!")
